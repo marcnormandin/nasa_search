@@ -1,0 +1,53 @@
+<form>
+    <label>Search NASA for:</label>
+
+    <div class="input-group">
+      <div class="input-group-addon">Latitude</div>
+      <input [(ngModel)]="lat" type="number" placeholder="45.386303" min="-90.0" max="90.0" step="0.01" class="form-control">
+    </div>
+
+  <div class="input-group">
+    <div class="input-group-addon">Longitude</div>
+    <input [(ngModel)]="lon" type="number" placeholder="-75.695520" min="-180.0" max="180.0" step="0.01" class="form-control">
+  </div>
+
+  <div class="input-group">
+    <div class="input-group-addon">Begin Date</div>
+    <input [(ngModel)]="dateBegin" type="text" placeholder="2014-02-01" class="form-control">
+  </div>
+
+  <div class="input-group">
+    <div class="input-group-addon">End Date</div>
+    <input [(ngModel)]="dateEnd" type="text" placeholder="" class="form-control">
+  </div>
+
+<!--  The NASA API is supposed to accept this input, but it doesn't.
+  <div class="input-group">
+    <div class="input-group-addon">Field of view (degrees)</div>
+    <input [(ngModel)]="fov" type="number" placeholder="0.025" step="0.0001" class="form-control">
+  </div>
+-->
+
+  <div class="input-group">
+    <button class="btn" (click)="onSearch()">Search</button>
+  </div>
+</form>
+
+
+
+<div *ngIf="imageUrls">
+  <hr/>
+  <div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title">NASA Images</h3>
+  </div>
+  <div class="panel-body">
+    <div *ngFor="let rowId of rows" class="row" >
+      <div *ngFor="let colId of cols" class="col-sm-4">
+
+          <nasa-image *ngIf="colId + rows.length*rowId < imageUrls.length" [imageUrls]="imageUrls" [id]="colId + rows.length*rowId">Loading...</nasa-image>
+
+      </div>
+    </div>
+  </div>
+</div>

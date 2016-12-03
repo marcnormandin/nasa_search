@@ -1,0 +1,46 @@
+<nav class="navbar navbar-default">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#">NASA Search</a>
+    </div>
+    <div id="navbar" class="collapse navbar-collapse">
+      <ul class="nav navbar-nav">
+        <li><a href="http://normandin.io">normandin.io</a></li>
+            <li><a href="https://api.nasa.gov/api.html#earth">API</a></li>
+            <li><a href="#about">About</a></li>
+        </ul>
+    </div><!--/.nav-collapse -->
+  </div>
+</nav>
+
+<div class="container">
+    <div class="row">
+      <div class="col-md-8 col-md-offset-2">
+        <nasa-search>Loading...</nasa-search>
+        <hr/>
+        <a href="#about"><h1>About</h1></a>
+        <p>This webapp is an interface to one of <a href="https://api.nasa.gov/index.html">NASA's public APIs</a>. I, Marc Normandin, wrote
+          it while learning <i>Angular 2</i> in 2016. It is written
+          in <i>Angular 2</i>, and uses <i>Bootstrap</i> for styling. It is served
+          by an <i>nginx</i> server.</p>
+          <p>Some known issues are that some images are returned with junk data, and
+            so will be displayed as pure white. This seems to be a problem with
+            the googleapis server. The images are requested in sequence with 1 second
+            delays because the googleapis server will give a 429 response (Too Many Requests) otherwise.
+            The images are not sorted by date before being displayed, and this will be fixed in the future.
+          </p>
+          <p><b>To-do:</b> I intend to host the source code for this web app on GitHub in the future. This is not currently
+            done because I need to change the architecture a bit so that the token is not exposed. In addition, the client
+            will use a custom node.js server to get images from instead of contacting the NASA directly.
+          </p>
+        <hr/>
+        <center><label>Marc Normandin (Copyright 2016)</label></center>
+      </div>
+    </div>
+</div>

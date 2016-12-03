@@ -1,0 +1,9 @@
+.input-group-addon {
+    min-width:150px;
+    text-align:right;
+}
+
+.btn {
+  color: white;
+  background-color: blue;
+}
